@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GTM GA4 JSON Builder</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Spec v1.1 · custom_event</p>
+        <h1>GTM GA4 JSON Builder</h1>
+        <p>Validate an AI-generated measurement spec and download a GTM container import file.</p>
+      </header>
+
+      <form id="builder-form">
+        <label for="spec-input">Spec JSON</label>
+        <textarea id="spec-input" spellcheck="false" required>{
+  "specVersion": "1.1",
+  "measurementId": "G-XXXXXXXXXX",
+  "events": [{
+    "eventName": "ui_click",
+    "trigger": { "type": "custom_event", "eventName": "ui_click" },
+    "parameters": [{
+      "name": "screen_name",
+      "valueType": "dataLayerVariable",
+      "value": "screen_name"
+    }]
+  }]
+}</textarea>
+        <button type="submit">Validate and build</button>
+      </form>
+
+      <section aria-live="polite">
+        <div id="errors" class="errors"></div>
+        <div class="preview-heading">
+          <h2>Container JSON preview</h2>
+          <a id="download" class="download" hidden>Download JSON</a>
+        </div>
+        <pre id="preview">Generated JSON will appear here.</pre>
+      </section>
+    </main>
+    <script type="module" src="src/app.mjs"></script>
+  </body>
+</html>
