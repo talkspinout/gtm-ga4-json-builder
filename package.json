@@ -1,0 +1,10 @@
+{
+  "name": "gtm-ga4-json-builder",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Builds GTM container-import JSON for GA4 Event tags from a structured spec.",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test test/**/*.test.js"
+  }
+}
